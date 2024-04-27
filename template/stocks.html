@@ -3,6 +3,8 @@
 <head>
     <title>Stock Price Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
 </head>
 <body>
     <canvas id="stockChart" width="800" height="400"></canvas>
@@ -41,6 +43,20 @@
                             text: 'Price'
                         }
                     }
+                },
+              plugins: {
+              tooltip: {
+                  callbacks: {
+                      label: function(context) {
+                          var label = context.dataset.label || '';
+                          if (label) {
+                              label += ': ';
+                          }
+                          if (context.parsed.y !== null) {
+                              label += '$' + context.parsed.y.toFixed(2);
+                          }
+                          return label;
+                      }
                 }
             }
         });

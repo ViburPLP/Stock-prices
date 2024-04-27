@@ -8,13 +8,19 @@ def fetch_stock_prices(request):
     symbol = "AAPL"  # Example stock symbol (Apple Inc.)
     url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={api_key}"
 
+    
     response = requests.get(url)
     data = response.json()["Time Series (Daily)"]
 
+    stock_prices = []
     for date, values in data.items():
-        stock_price = StockPrice.objects.filter(stock_symbol="AAPL")[:10]  
-          #Get the last 10 stock prices
-        return render(request, 'stocks.html', {'stock_prices': stock_price})
+        stock_price = StockPrice.objects.create(
+          date=date,
+          stock_symbol=symbol,
+          price=values["4. close"]
+        )  
+        stock_prices.append(stock_price)
+        return render(request, 'stocks.html', {'stock_prices': stock_prices})
       # StockPrice(
         #     date=date,
         #     stock_symbol=symbol,

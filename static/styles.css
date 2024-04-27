@@ -1,0 +1,47 @@
+/* styles.css */
+
+/* Chart styles */
+canvas {
+    max-width: 800px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container styles */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Heading styles */
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Tooltip styles */
+.chartjs-tooltip {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 3px;
+    padding: 6px 10px;
+    font-size: 12px;
+}
+.chart {
+    max-width: 800px;
+    margin: 0 auto;
+    display: block;
+}
+/* Chart styles */
