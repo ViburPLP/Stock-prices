@@ -18,11 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path
 from . import views
+from django.urls import path, include
 from stocksapp import views
 from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
   path('fetch-stock-prices/', views.fetch_stock_prices, name='fetch_stock_prices'),
-  path('', views.dashboard, name='dashboard')
+  path('', views.dashboard, name='dashboard'),
+  path('', include('stocksapp.urls')),
 ]

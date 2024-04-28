@@ -1,6 +1,6 @@
 import requests
 from django.shortcuts import render
-from .models import StockPrice
+from django_project.models import StockPrice
 
 
 def fetch_stock_prices(request):
